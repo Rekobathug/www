@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="layout.css" type="text/css"/>
+        <script src="jquery-3.2.0.min.js"></script>
+        <script src="functions.js"></script>
+        <script>
+            window.onload = checkLogin();
+
+            var today = new Date(new Date().setFullYear(new Date().getFullYear() - 18));
+            window.onload = load;
+            function load() {
+                document.getElementById("date-of-birth").max = today.toISOString().split('T')[0];
+            }
+            function register() {
+                //Create request object 
+                var textbox = ["firstname", "lastname", "date-of-birth", "emailaddress", "confirmemailaddress", "password"];
+                var validation = validation_form(textbox, 'response-message');
+                if (validation) {
+
+                    var request = new XMLHttpRequest();
+                    //Create event handler that specifies what should happen when server responds
+                    request.onload = function () {
+                        //Check HTTP status code
+                        if (request.status === 200) {
+                            //Get data from server
+                            var responseData = request.responseText;
+                            document.getElementById("response-message").innerHTML = responseData;
+                            textbox.forEach(empty_input);
+                            document.getElementById('male').checked = false;
+                            document.getElementById('female').checked = false;
+                        } else
+                            alert("Error communicating with server: " + request.status);
+                    };
+                    //Set up request with HTTP method and URL 
+                    request.open("POST", "PHP_User/add_user.php");
+                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                    //Extract registration data
+
+                    var usrFirstName = document.getElementById("firstname").value;
+                    var usrLastName = document.getElementById("lastname").value;
+                    var usrDateOfBirth = document.getElementById("date-of-birth").value;
+                    var usrEmailAddress = document.getElementById("emailaddress").value;
+                    var usrPassword = document.getElementById("password").value;
+                    var usrSex = "Not Selected";
+                    if (document.getElementById('male').checked) {
+                        usrSex = document.getElementById('male').value;
+                    }
+                    if (document.getElementById('female').checked) {
+                        usrSex = document.getElementById('female').value;
+                    }
+                    //Send request
+                    request.send("firstname=" + usrFirstName +
+                            "&lastname=" + usrLastName +
+                            "&date-of-birth=" + usrDateOfBirth +
+                            "&emailaddress=" + usrEmailAddress +
+                            "&password=" + usrPassword +
+                            "&sex=" + usrSex);
+                } else {
+                    document.getElementById("response-message").innerHTML = "Complete empty fields";
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <center>
+        <header>
+            <!--Icon-->
+            <a href="home.html">
+                <img alt="icon" src="images/icon.png" width="135">
+            </a>
+        </header>
+        <div >
+
+            <h1>Sign Up</h1>
+
+            <form>
+                <strong>
+                    <br><br>
+                    First name:
+                    <input type="text"  name="firstname" id="firstname" oninput="validate_leters('firstname')" required>
+                    <br><br>
+                    Last name:
+                    <input type="text" name="lastname" id="lastname" oninput="validate_leters('lastname')" required>
+                    <br><br>
+                    Date of birth:
+                    <input type="date" name="date-of-birth" id="date-of-birth" min="1900-01-01" required>
+                    <br><br>
+                    Email address:
+                    <input type="email" name="emailaddress" id="emailaddress"  oninput="validate_chars('emailaddress')" required>
+                    <br><br>
+                    Confirm email address:
+                    <input type="text"  name="confirmemailaddress" id="confirmemailaddress" oninput="validate_chars('confirmemailaddress')" required >
+                    <br><br>
+                    Password:
+                    <input type="password" name="password" id="password" oninput="validate_chars('password')" required>
+                    <br><br>
+                    Sex(Optional):
+                    <input type="radio" name="gender" id="male" value="male"> Male
+                    <input type="radio" name="gender" id="female"  value="female"> Female<br>
+                    <br><br>
+                    <!--Tick boxes for the user to select whether they want emails about promotions etc.-->
+                    <input type="checkbox" name="ticket" >Tick box to receive emails about discounts and other promotions.<br><br>
+                    <input type="checkbox" name="ticket" >Tick box to receive emails from your favourite event organisers.<br><br>
+                    <span id="response-message"></span><br><br>
+                    <a  onclick="register()" >Submit</a><br><br>
+
+                </strong>
+            </form>
+            <a href="login.html">Cancel</a><br><br>
+        </div>
+    </center>
+</body>
+</html>

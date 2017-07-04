@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>My Org</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="layout.css" type="text/css"/>
+        <script src="functions.js"></script>
+        <script>
+            window.onload = checkOrg();
+
+
+            function checkOrg() {
+
+                var request = new XMLHttpRequest();
+                //Create event handler that specifies what should happen when server responds
+                request.onload = function () {
+                    orgDetails = JSON.parse(request.responseText);
+                    if (orgDetails.hasOwnProperty("message")) {
+                        document.getElementById("message").innerHTML = orgDetails["message"];
+                        window.location="home.html";
+                    } else {
+
+                        document.getElementById("orgname").innerHTML = orgDetails["orgname"];
+                        document.getElementById("icon").src = value = orgDetails["icon"];
+                        orgID = orgDetails["orgid"];
+                        localStorage["orgID"] = orgDetails["orgid"];
+                        alert(orgID);
+                    }
+                };
+                //Set up and send request
+                request.open("GET", "PHP_Org/org_login.php");
+                request.send();
+            }
+
+
+
+        </script>
+
+    </head>
+    <body>
+    <center>
+        <span id='message'></span>
+        <img alt="org-icon" src="images/community-icon.png" width="150" style="float:left;" id="icon"> <h1 style="float:left;" id="orgname">Organization name </h1><br><br><br><br><br><br><br>
+        <div style="width:11%; float: left; border: 1px solid black; height: 700px;">
+
+            <a class="menu" href="myorg-events.html" target="container">Events</a>
+            <a class="menu" href="myorg-guestlist.html" target="container">Guest lists</a>
+            <a class="menu" href="myorg-settings.html" target="container">Settings</a>
+            <a href="organization.html" class="menu">Back</a>
+        </div> 
+
+        <div id="org-events" style="width:88%; float: right; border: 1px solid black; height: 700px;">
+            <iframe  name="container" style="width:96%; height: auto;" src="myorg-events.html" frameborder="0" scrolling="no" onload="resizeIframe(this)" onchange="resizeIframe(this)"  ></iframe>
+            <script>
+                function resizeIframe(obj) {
+                    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+                }
+            </script>
+
+        </div>
+
+    </center>
+</body>
+</html>

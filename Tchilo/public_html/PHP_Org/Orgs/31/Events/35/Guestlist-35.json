@@ -1,0 +1,28 @@
+{
+    "Guestlist": [{
+            "userid": "9",
+            "name": "A",
+            "ref-promoter": "Rui"
+        }, {
+            "userid": "9",
+            "name": "A",
+            "ref-promoter": "Rui"
+        }, {
+            "userid": "9",
+            "name": "C",
+            "ref-promoter": "Rui"
+        }, {
+            "userid": "9",
+            "name": "E",
+            "ref-promoter": "Rui"
+        }, {
+            "userid": "9",
+            "name": "E",
+            "ref-promoter": "Rui"
+        }, {
+            "userid": "9",
+            "name": "B",
+            "ref-promoter": "Rui"
+        }],
+    "0": 128
+}
