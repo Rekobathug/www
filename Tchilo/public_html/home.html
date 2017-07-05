@@ -11,13 +11,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="layout.css" type="text/css"/>
         <base target="container">
-        <script src="functions.js"></script>
-    <script>
-            window.onload = checkLogin();
-            
-            
-            
-    </script>
+        <script src="../../dist/app_bundle.js"></script>
+
     </head>
     <body>
     <center>
@@ -39,11 +34,7 @@ and open the template in the editor.
             </ul>
         </nav>
         <iframe  name="container" style="width:96%; height: 700px;" src="events.html" frameborder="0"  onload="resizeIframe(this)" onchange="resizeIframe(this)"  ></iframe>
-        <script>
-            function resizeIframe(obj) {
-                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-            }
-        </script>
+
         <footer>Copyright &copy; Drenalist.com</footer>
     </center>
 

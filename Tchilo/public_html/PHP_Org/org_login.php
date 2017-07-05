@@ -36,7 +36,7 @@ if (!$conn) {
             $_SESSION['orgID'] = $row['idorganization'];
             $_SESSION['orgname'] = $row['orgname'];
             echo '{"orgname" : "' . $row['orgname']
-            . '", "orgid" : "' . $row['idOrganization']
+            . '", "orgid" : "' . $row['idorganization']
             . '", "icon" : "' . $row['icon'] . '"}';
         } else {
             echo '{"message" : "No Org found for this user"}';
