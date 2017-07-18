@@ -10,8 +10,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="layout.css" type="text/css"/>
-        <script src="functions.js"></script>
-        <script src="scripts/modules/organization.js"></script>
         <base target="_parent">
     </head>
     <body>
@@ -20,21 +18,14 @@ and open the template in the editor.
         <div id='vieworgs'>
             <div style="position: fixed; height: 100px;">
 
-                <a onclick="visibility(['createorg', 'vieworgs'])" style="float: right; margin: 3%;">Create Org</a>
+                <a id='create' style="float: right; margin: 3%;">Create Org</a>
                 <input type="search" class="search" name="orgsearch" id="orgsearch" oninput="search_org();" placeholder="search for orgs..." >
             </div><br><br><br><br><br><br><br><br><br><br>
 
 
 
             <div id='orgs' style="padding: 0%;">
-                <table id="table-orgs">
-                    <tr class="header" >
-                        <th style="width:30%;">1</th>
-                        <th style="width:30%;">2</th>
-                        <th style="width:30%;">3</th>
-                        <th style="width:30%;">4</th>
-                    </tr>
-                </table>
+              
                 <p id='message'></p>
             </div>
             <div id='orgs-search' style="padding: 0%;display: none">
@@ -88,7 +79,7 @@ and open the template in the editor.
                         <input type="text" name="org-phonenumber" id="org-phonenumber" required>
                     </strong>
                 </form>
-                <a onclick="register_org();">Submit</a>
+                <a id="register">Submit</a>
             </div>
             <div id="create-icon" style="height: 400px; display: none;">
                 <form action="PHP_Org/upload_org_image.php" method="post" enctype="multipart/form-data" target="view_imageToUpload">
@@ -102,5 +93,7 @@ and open the template in the editor.
             </div>
         </div>
     </center>
+
+    <script src="../../dist/app_bundle.js"></script>
 </body>
 </html>

@@ -10,9 +10,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="layout.css" type="text/css"/>
-        <script src="jquery-3.2.0.min.js"></script>
-        <script src="functions.js"></script>
-        <script src="scripts/modules/register.js"></script> 
     </head>
     <body>
     <center>
@@ -55,12 +52,14 @@ and open the template in the editor.
                     <input type="checkbox" name="ticket" >Tick box to receive emails about discounts and other promotions.<br><br>
                     <input type="checkbox" name="ticket" >Tick box to receive emails from your favourite event organisers.<br><br>
                     <span id="response-message"></span><br><br>
-                    <a  onclick="register()" >Submit</a><br><br>
+                    <a id='register'>Submit</a><br><br>
 
                 </strong>
             </form>
             <a href="login.html">Cancel</a><br><br>
         </div>
     </center>
+
+        <script src="../../dist/app_bundle.js"></script>
 </body>
 </html>

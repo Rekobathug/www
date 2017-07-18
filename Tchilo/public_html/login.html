@@ -10,8 +10,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="layout.css" type="text/css"/>
-        <script src="functions.js"></script>
-        <script src="scripts/modules/login.js"></script>
     </head>
     <body>
     <center>
@@ -28,12 +26,13 @@ and open the template in the editor.
                 <h1>Sign In</h1>
                 <br><br><strong>
                     Email address:
-                    <input type="email" name="emailaddress" oninput="validate_chars('emailaddress')" id="emailaddress" required>
-                    <br><br>
+                    <input type="text" name="emailaddress"  id="emailaddress">
+                    <br>
                     Password:
                     <input type="password" name="password" id="password" required>
-                    <br><br>
-                    <a  onclick="login();">submit</a><br>
+                    <br>
+                    <a id="login" >submit</a>
+                    <br>
                     <span id="server-message"></span>
                     <br><br></strong>
 
@@ -42,5 +41,7 @@ and open the template in the editor.
             <a  href="home.html">Home</a>
         </div>
     </center>
+
+    <script src="../../dist/app_bundle.js"></script>
 </body>
 </html>

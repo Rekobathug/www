@@ -10,7 +10,6 @@ $fields = array('emailaddress', 'password');
 $check = false;
 foreach ($fields as $field) {
     if (empty($_POST[$field])) {
-        echo '{"message" : "' . $_POST[$field] . ' : ' . $field . '"}';
         $check = true;
     }
 }
@@ -41,12 +40,12 @@ if ($check) {
         $filter_email = preg_replace("/[^a-zA-Z0-9@.\\_\\-]+/", "", $email);
         $filter_password = preg_replace("/[^a-zA-Z0-9@.\\_\\-]+/", "", $password);
 
-        //get data 
+        //get data
 
         $sql = "SELECT emailaddress, password,idUser,firstname FROM guestlist.user WHERE emailaddress='$filter_email';";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 1) {
-            // 
+            //
 
             $row = mysqli_fetch_assoc($result);
             $pass = $row['password'];

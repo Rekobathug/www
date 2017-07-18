@@ -1,7 +1,7 @@
 import func from "./functionx";
 
 (function(){
-  func.checkLogin();
+  func.UcheckLogin();
 })()
 
 

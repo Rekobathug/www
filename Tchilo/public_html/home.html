@@ -5,38 +5,40 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Drenalist</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="layout.css" type="text/css"/>
-        <base target="container">
-        <script src="../../dist/app_bundle.js"></script>
 
-    </head>
-    <body>
-    <center>
-        <nav>
-            <a href="events.html" target="container">
+<head>
+  <title>Drenalist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="layout.css" type="text/css" />
+  <base target="container">
+</head>
+
+<body>
+  <center>
+    <nav>
+      <a href="events.html" target="container">
                 <img alt="icon" src="images/icon.png" width="100">
             </a>
-            <ul class="navigationbar">
-                <li id="nav1" ><a href="events.html" target="container">Events</a></li>
-                <li id="nav2" style="display: none" ><a href="organization.html" target="container">Organizations</a></li>
-                <li id="nav3" style="display: none"><a href="tickets.html" target="container">Tickets</a></li>
-                <li id="nav4" style="display: none"><a href="settings.html" target="container">Settings</a></li>
-                <li id="nav5" style="display: none"><a href="orders.html" target="container">Orders</a></li>
-                <li id="nav9" style="display: none"><a href="myorg.html" target="_top">Myorg</a></li>
+      <ul class="navigationbar">
+        <li id="nav1" class="nav-item"><a href="events.html" target="container">Events</a></li>
+        <li id="nav2" class="nav-item" style="display: none"><a href="organization.html" target="container">Organizations</a></li>
+        <li id="nav3" class="nav-item" style="display: none"><a href="tickets.html" target="container">Tickets</a></li>
+        <li id="nav4" class="nav-item" style="display: none"><a href="settings.html" target="container">Settings</a></li>
+        <li id="nav5" class="nav-item" style="display: none"><a href="orders.html" target="container">Orders</a></li>
+        <li id="nav9" class="nav-item" style="display: none"><a href="myorg.html" target="_top">Myorg</a></li>
 
-                <li id="nav6" style="float:right;"><a id="logout" onclick="logout()">Sign in</a></li>
-                <li id="nav7" style="float:right;display: none"><a href="checkout.html" target="container" style=" margin: 0px 0px; padding: 0px 0px;"><img alt="" src="images/basket.png" width="40"></a></li>
-                <li id="nav8" style=" float:right;display: none; padding: 0 40px;"><p>User Name</p></li>
-            </ul>
-        </nav>
-        <iframe  name="container" style="width:96%; height: 700px;" src="events.html" frameborder="0"  onload="resizeIframe(this)" onchange="resizeIframe(this)"  ></iframe>
+        <li id="nav6" class="nav-item" style="float:right;"><a href="login.html" target="_top">Sign in</a></li>
+        <li id="nav10" class="nav-item" style="float:right;display: none"><a id='logout'>Logout</a></li>
+        <li id="nav7" class="nav-item" style="float:right;display: none"><a href="checkout.html" target="container" style=" margin: 0px 0px; padding: 0px 0px;"><img alt="" src="images/basket.png" width="40"></a></li>
+        <li id="nav8" class="nav-item" style=" float:right;display: none; padding: 0 40px;"><p id='username'>User Name</p></li>
+      </ul>
+    </nav>
+    <iframe name="container" style="width:96%; height: 700px;" src="events.html" frameborder="0" onload="resizeIframe(this)" onchange="resizeIframe(this)"></iframe>
 
-        <footer>Copyright &copy; Drenalist.com</footer>
-    </center>
-
+    <footer>Copyright &copy; Drenalist.com</footer>
+  </center>
+  <script src="../../dist/app_bundle.js"></script>
 </body>
+
 </html>
